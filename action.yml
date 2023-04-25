@@ -1,0 +1,17 @@
+name: Playdate Test Action
+description: Run Luatest-based tests within a headless Docker simulator
+author: Sean Freitag (freitag.sean@gmail.com)
+branding:
+  icon: 'play'
+  color: 'green'
+
+inputs:
+  test-dir:
+    description: 'Directory of tests.yml'
+    required: true
+  
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    TEST_DIR: ${{ inputs.test-dir }}
